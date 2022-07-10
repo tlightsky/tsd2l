@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
-import {Tensor1D, Tensor2D, Tensor3D, Variable} from "@tensorflow/tfjs";
+import {Tensor, Tensor1D, Tensor2D, Tensor3D, Variable} from "@tensorflow/tfjs";
 
 (function () {
     let x: Tensor1D = tf.range(0, 12)
@@ -182,4 +182,23 @@ import {Tensor1D, Tensor2D, Tensor3D, Variable} from "@tensorflow/tfjs";
     if (outEle !== null) {
         outEle.innerText = outText
     }
-})()
+})();
+
+
+(async function () {
+    let outText: string = ''
+
+    const f = function (x: Tensor) {
+        return x.square()
+    }
+    const g = tf.grad(f)
+    const x = tf.tensor1d([2, 3]);
+
+    outText += `\ng(x):\n`
+    outText += `${g(x)}\n`
+
+    let outEle = document.getElementById('grad')
+    if (outEle !== null) {
+        outEle.innerText = outText
+    }
+})();
