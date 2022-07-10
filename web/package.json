@@ -17,6 +17,8 @@
     "process": "^0.11.10"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^3.18.0"
+    "@tensorflow/tfjs": "^3.18.0",
+    "@tensorflow/tfjs-vis": "^1.5.1",
+    "timer-node": "^5.0.6"
   }
 }

@@ -1,5 +1,5 @@
-import * as tf from '@tensorflow/tfjs';
-import {Tensor, Tensor1D, Tensor2D, Tensor3D, Variable} from "@tensorflow/tfjs";
+import * as tf from '@tensorflow/tfjs'
+import {Tensor, Tensor1D, Tensor2D, Tensor3D, Variable} from "@tensorflow/tfjs"
 
 (function () {
     let x: Tensor1D = tf.range(0, 12)
