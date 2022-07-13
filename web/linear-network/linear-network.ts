@@ -60,7 +60,9 @@ function shuffle(array: number[]) {
         y = y.reshape([-1, 1])
         return [X, y]
     }
-    let [features, labels] = syntheticData(tf.tensor([2, -3.4]), 4.2, 1000)
+    let true_b = 4.2
+    let true_w = tf.tensor([2, -3.4])
+    let [features, labels] = syntheticData(true_w, true_b, 1000)
     // features.print(true)
     // labels.print(true)
     // console.log(features.arraySync())
@@ -135,7 +137,7 @@ function shuffle(array: number[]) {
 
     // tf.train.sgd(0.1).minimize()
     let lr = 0.03,
-        numEpochs = 3,
+        numEpochs = 13,
         net = linreg,
         loss = squaredLoss;
 //     for epoch in range(num_epochs):
@@ -165,6 +167,8 @@ function shuffle(array: number[]) {
         // print(f'epoch {epoch + 1}, loss {float(tf.reduce_mean(train_l)):f}')
         console.log(`epoch ${i + 1}, loss ${train_l}`)
     }
+    console.log(`w的误差：${true_w.sub(w.reshape(true_w.shape))}`)
+    console.log(`b的误差：${true_b - b.dataSync()[0]}`)
 
 
     let outEle = document.getElementById('add')
